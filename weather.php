@@ -3,6 +3,8 @@
 
 	if(isset($_SESSION['token'])) {
 		try {
+			echo "<p>".$_SESSION['stat']."</p>";
+			unset($_SESSION['stat']);
 ?>
 			<form method="post" action="status.php">
 				<select name="city">

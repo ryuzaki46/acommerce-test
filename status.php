@@ -27,6 +27,7 @@
 		);
 
 		$res = $fb->post('/me/feed', $data, $_SESSION['token']);
+		$_SESSION['stat'] = "Post success! check your facebook account";
 		header("Location: weather.php");
 	} else {
 		echo "Sorry, You cannot use the app without these permissions. Go back to <a href = 'index.php'>home</a>.";

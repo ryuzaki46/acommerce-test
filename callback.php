@@ -12,16 +12,18 @@
 	if (isset($accessToken)) {
 	
 		$client = $fb->getOAuth2Client();
+		
 		try {
-		  $accessToken = $client->getLongLivedAccessToken($accessToken);
+		  	$accessToken = $client->getLongLivedAccessToken($accessToken);
 		} catch(Facebook\Exceptions\FacebookSDKException $e) {
-		  echo $e->getMessage();
-		  exit();
+		 	echo $e->getMessage();
+		  	exit();
 		}
+		
 		$_SESSION['token'] = (string) $accessToken;
 	  	header('Location: weather.php');
 	  	
-	} elseif ($helper->getError()) {
+	} else if ($helper->getError()) {
 	 	echo "Sorry, You cannot use the app without these permissions. Go back to <a href = 'index.php'>home</a>.";
 	  	exit();
 	}
